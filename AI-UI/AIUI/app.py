@@ -257,7 +257,13 @@ def inject_css():
     }
 
     /* ── Analyze button ── */
-    .stButton { display: flex; justify-content: center; margin-top: 8px; }
+    .stButton {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 8px !important;
+    }
     .stButton > button {
         background: #a777e3 !important;
         color: white !important;
@@ -268,6 +274,7 @@ def inject_css():
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
         box-shadow: 0 4px 15px rgba(167,119,227,0.4) !important;
+        margin: 0 auto !important;
     }
     .stButton > button:hover {
         background: #9666d8 !important;
@@ -406,7 +413,9 @@ def main():
         st.audio(uploaded_file)
 
     # ── Analyze button ────────────────────────────────────────────────────────
-    analyze = st.button("🧠  Analyze Emotion", disabled=(uploaded_file is None))
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        analyze = st.button("🧠  Analyze Emotion", disabled=(uploaded_file is None))
 
     # ── Prediction ────────────────────────────────────────────────────────────
     if analyze and uploaded_file:
