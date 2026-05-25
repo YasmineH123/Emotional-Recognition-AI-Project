@@ -17,7 +17,7 @@ logging.basicConfig(
 ALLOWED_EXTENSIONS = {"wav", "mp3", "m4a"}
 TARGET_SAMPLE_RATE = 16000
 N_MFCC = 13
-MODEL_DIR = "models"
+MODEL_DIR = os.path.join(os.path.dirname(__file__), "models")
 
 # ─── Emotion metadata ─────────────────────────────────────────────────────────
 EMOTIONS = [
